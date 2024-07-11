@@ -1,3 +1,20 @@
+
+'''
+12) Projete uma enumeração para representar as direções norte, leste, sul e oeste. Em seguida,
+
+a) Projete uma função que indique a direção oposta de uma dada direção.
+
+b) Projete uma função que indique qual é direção que está a 90 graus no sentido horário de outra
+direção.
+
+c) Projete uma função que indique qual é direção que está a 90 graus no sentido anti-horário de
+outra direção. Use a função do item b para fazer a implementação (não use seleção).
+
+d) Projete uma função que receba como entrada duas direções e indique quantos graus uma pessoa
+que está virado para a primeira direção precisa virar no sentido horário para virar para a segunda
+direção.
+
+'''
 from enum import Enum, auto
 
 
