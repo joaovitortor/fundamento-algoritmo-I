@@ -50,9 +50,8 @@ def main():
 
             escolha_usuario = int(input('Escolha o usuario desejado inserindo o número: '))
 
-            if escolha_usuario > 0 and escolha_usuario < 7:
+            if escolha_usuario > 0 and escolha_usuario < 6:
 
-                usuario = tipo_usuario(escolha_usuario)
                 quant_tiquet = int(input('Quantos tiquetes estão sendo comprados? '))
 
                 print('|====================|')
@@ -64,14 +63,27 @@ def main():
 
                 forma_pagamento = int(input('Selecione o método de pagamento: '))
                 if forma_pagamento > 0 and forma_pagamento < 4:
-                    pagamento_enum = tipo_pagamento(forma_pagamento)
-                    vendas.append(Venda(usuario, pagamento_enum, quant_tiquet))
+
+                    vendas.append(Venda(tipo_usuario(escolha_usuario), tipo_pagamento(forma_pagamento), quant_tiquet))
+                    total = quant_tiquet * valor_usuario(tipo_usuario(escolha_usuario))
                     print('===========================')
                     print('Venda realizada com sucesso')
-                    print('Usuario:', usuario.name)
+                    print('Usuario:', tipo_usuario(escolha_usuario).name)
                     print('Quantidade de tiquet:', quant_tiquet)
-                    print('Total:', quant_tiquet * valor_usuario(usuario))
+                    print('Total:', total)
                     print('===========================')
+
+        elif operacao == 2:
+            print(vendas)
+            print('Alunos: ', contar_usuario(vendas, Usuarios.ALUNO))
+            print('Servidor<3: ', contar_usuario(vendas, Usuarios.SERVIDOR_ATE3))
+            print('Servidor>3: ', contar_usuario(vendas, Usuarios.SERVIDOR_MAIOR3))
+            print('Docente: ', contar_usuario(vendas, Usuarios.DOCENTE))
+            print('Externo: ', contar_usuario(vendas, Usuarios.EXTERNO))
+            print('Cartão: ', contar_pagamento(vendas, Pagamento.CARTAO))
+            print('Dinheiro: ', contar_pagamento(vendas, Pagamento.DINHEIRO))
+            print('Pix: ', contar_pagamento(vendas, Pagamento.PIX))
+
 
 def valor_usuario(tipo_usuario: Usuarios) -> int:
     '''
