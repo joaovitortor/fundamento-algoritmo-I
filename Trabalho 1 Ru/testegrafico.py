@@ -85,7 +85,7 @@ def maior(a: int, b: int) -> int:
 def main():
     alunos = 50
     servidor_ate3 = 10
-    servidor_maior3=5
+    servidor_maior3 = 5
     docente = 30
     externo = 5
 

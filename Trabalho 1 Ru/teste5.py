@@ -75,14 +75,15 @@ def main() -> None:
 
         elif operacao == 2:
             print(vendas)
-            print('Alunos: ', contar_usuario(vendas, Usuarios.ALUNO))
-            print('Servidor<3: ', contar_usuario(vendas, Usuarios.SERVIDOR_ATE3))
-            print('Servidor>3: ', contar_usuario(vendas, Usuarios.SERVIDOR_MAIOR3))
-            print('Docente: ', contar_usuario(vendas, Usuarios.DOCENTE))
-            print('Externo: ', contar_usuario(vendas, Usuarios.EXTERNO))
-            print('Cartão: ', contar_pagamento(vendas, Pagamento.CARTAO))
-            print('Dinheiro: ', contar_pagamento(vendas, Pagamento.DINHEIRO))
-            print('Pix: ', contar_pagamento(vendas, Pagamento.PIX))
+
+            print('Alunos:     ', grafico(vendas, Usuarios.ALUNO))
+            print('Servidor<3: ', grafico(vendas, Usuarios.SERVIDOR_ATE3))
+            print('Servidor>3: ', grafico(vendas, Usuarios.SERVIDOR_MAIOR3))
+            print('Docente:    ', grafico(vendas, Usuarios.DOCENTE))
+            print('Externo:    ', grafico(vendas, Usuarios.EXTERNO))
+            print('Cartão:     ', contar_pagamento(vendas, Pagamento.CARTAO))
+            print('Dinheiro:   ', contar_pagamento(vendas, Pagamento.DINHEIRO))
+            print('Pix:        ', contar_pagamento(vendas, Pagamento.PIX))
 
 
 def valor_usuario(tipo_usuario: Usuarios) -> int:
@@ -178,5 +179,29 @@ def contar_pagamento(vendas: list[Venda], pagamento: Pagamento) -> int:
             quant_pagamento = quant_pagamento + Venda.quantidade * valor_usuario(Venda.usuario)
     return quant_pagamento
 
+def maior(a: int, b: int) -> int:
+    if a >= b:
+        maior = a
+    else:
+        maior = b
+    return maior
+
+def grafico(vendas: list[Venda], usuario: Usuarios) -> str:
+    total = int(contar_usuario(vendas, Usuarios.ALUNO) + contar_usuario(vendas, Usuarios.SERVIDOR_ATE3) + contar_usuario(vendas, Usuarios.SERVIDOR_MAIOR3) + contar_usuario(vendas, Usuarios.DOCENTE) + contar_usuario(vendas, Usuarios.EXTERNO))
+
+    porc = contar_usuario(vendas, usuario) / total * 100
+    if porc < 5 and porc != 0:
+        tamanho = '='
+    else:
+        tamanho = '=' * int(porc // 5)
+
+    if porc < 10:
+        linha_porcentagem = ' ' + str(porc) + '%'
+    else:
+        linha_porcentagem = '' + str(porc) + '%'
+    linha_grafico = '[' + tamanho + '] ' + linha_porcentagem
+    return linha_grafico
+
+    return ''
 if __name__ == '__main__':
     main()
