@@ -186,10 +186,12 @@ def maior(a: int, b: int) -> int:
         maior = b
     return maior
 
-def veirificar_maior(vendas: list[Venda]) 
+def veirificar_maior(vendas: list[Venda]) -> int:
+    maior_quantidade = maior(contar_usuario(vendas, Usuarios.ALUNO), maior(contar_usuario(vendas, Usuarios.SERVIDOR_ATE3), maior(contar_usuario(vendas, Usuarios.SERVIDOR_MAIOR3), maior(contar_usuario(vendas, Usuarios.DOCENTE), contar_usuario(vendas, Usuarios.EXTERNO)))))
+    
 def grafico(vendas: list[Venda], usuario: Usuarios) -> str:
 
-    maior_quantidade = maior(contar_usuario(vendas, Usuarios.ALUNO), maior(contar_usuario(vendas, Usuarios.SERVIDOR_ATE3), maior(contar_usuario(vendas, Usuarios.SERVIDOR_MAIOR3), maior(contar_usuario(vendas, Usuarios.DOCENTE), contar_usuario(vendas, Usuarios.EXTERNO)))))
+    
 
     total = int(contar_usuario(vendas, Usuarios.ALUNO) + contar_usuario(vendas, Usuarios.SERVIDOR_ATE3) + contar_usuario(vendas, Usuarios.SERVIDOR_MAIOR3) + contar_usuario(vendas, Usuarios.DOCENTE) + contar_usuario(vendas, Usuarios.EXTERNO))
 
