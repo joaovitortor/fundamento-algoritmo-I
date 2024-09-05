@@ -2,12 +2,18 @@
 
 def insere_valor_indice(lst: list[int], i: int, v: int) -> None:
     '''
-    ...
+    Insere o valor *v* no indice *i* da lista *lst*
+    Requer *i* <= len(lst)
     
     >>> lst = [1, 2, 3, 4]
     >>> insere_valor_indice(lst, 2, 5)
     >>> print(lst)
     [1, 2, 5, 3, 4]
+
+    >>> lst = []
+    >>> insere_valor_indice(lst, 0, 5)
+    >>> print(lst)
+    [5]
 
     
     '''

@@ -13,6 +13,11 @@ def soma_n(lst: list[int], n: int) -> None:
     >>> soma_n(lst, 5)
     >>> print(lst)
     [6, 7, 8]
+
+    >>> lst = [1]
+    >>> soma_n(lst, -1)
+    >>> print(lst)
+    [0]
     '''
 
     for i in range(0, len(lst)):

@@ -7,6 +7,8 @@ def remove_indice(lst: list[int], i: int) -> None:
     >>> remove_indice(lst, 2)
     >>> print(lst)
     [1, 2, 4, 5]
+
+    
     '''
     while i < len(lst) -1:
         t = lst[i]

@@ -1,6 +1,10 @@
 # Projete uma função recursiva que encontre o tamanho máximo entre todas as strings de uma lista de strings.
 
 def maximo_str(lst: list[str], n: int) -> int:
+    '''
+    Requer que 0 <= n < len(lst)
+    
+    '''
     if n == 0:
         maximo = 0
     else:

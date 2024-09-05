@@ -2,7 +2,8 @@
 
 def str_n(lst: list[str], n: int) -> None:
     '''
-    Modifica os elementos de lst, deixando as str do mesmo tamanho *n*
+    Modifica os elementos de *lst*, deixando as str do mesmo tamanho *n*
+
     >>> lst = []
     >>> str_n(lst, 3)
     >>> print(lst)
